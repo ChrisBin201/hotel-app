@@ -1,6 +1,8 @@
 package hotels.service;
 
 import hotels.dto.mapper;
+import hotels.dto.requestDto.ServiceRequestDto;
+import hotels.dto.requestDto.UserRequestDto;
 import hotels.dto.responseDto.ServiceResponseDto;
 import hotels.dto.responseDto.UserResponseDto;
 import hotels.model.User;
@@ -9,6 +11,7 @@ import hotels.security.jwt.JwtUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -46,6 +49,18 @@ public class UserServiceImpl implements UserService{
     public UserResponseDto deleteUser(Long id) {
         User u = userRepository.findById(id).get();
         userRepository.delete(u);
+        return mapper.userToUserResponseDto(u);
+    }
+
+    @Transactional
+    @Override
+    public UserResponseDto editUser(Long id, UserRequestDto userRequestDto) {
+        User u = userRepository.findById(id).get();
+        u.setFullname(userRequestDto.getFullname());
+        u.setAddress(userRequestDto.getAddress());
+        u.setTel(userRequestDto.getTel());
+        u.setUsername(userRequestDto.getUsername());
+//        u.setPassword(userRequestDto.getPassword());
         return mapper.userToUserResponseDto(u);
     }
 }

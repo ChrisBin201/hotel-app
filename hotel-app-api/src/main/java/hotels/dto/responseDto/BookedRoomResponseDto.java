@@ -14,9 +14,11 @@ public class BookedRoomResponseDto {
     private LocalDate checkin;
     @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy" )
     private LocalDate checkout;
+    @JsonFormat(shape = JsonFormat.Shape.STRING,pattern = "dd/MM/yyyy" )
+    private LocalDate bookingDate;
     private double price;
     private boolean isCheckin;
-    private String roomName;
+    private RoomResponseDto room;
     private String customerName;
     private List<UsedServiceResponseDto> listUsedService;
 

@@ -55,8 +55,9 @@ public class mapper {
     public static BookedRoomResponseDto BrToBookedRoomResponseDto(BookedRoom br){
         BookedRoomResponseDto bookedRoomResponseDto = new BookedRoomResponseDto();
         bookedRoomResponseDto.setId(br.getId());
-        bookedRoomResponseDto.setRoomName(br.getRoom().getName());
+        bookedRoomResponseDto.setRoom(mapper.roomToRoomResponseDto(br.getRoom()));
         bookedRoomResponseDto.setCustomerName(br.getBooking().getUser().getFullname());
+        bookedRoomResponseDto.setBookingDate(br.getBooking().getBookingDate());
         bookedRoomResponseDto.setPrice(br.getPrice());
         bookedRoomResponseDto.setCheckin(br.getCheckin());
         bookedRoomResponseDto.setCheckout(br.getCheckout());

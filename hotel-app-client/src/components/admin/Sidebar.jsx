@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 const itemsCore = [
   {
     name: 'Dashboard',
@@ -32,11 +32,10 @@ const SidebarNavLink = ({ item }) => {
     rounded-xl font-semibold
     text-gray-600
     hover:text-gray-900
-    hover:bg-primary-50
     transition
   `
 
-  const activeClassName = `text-primary-500 hover:text-primary-500 bg-primary-50`
+  const activeClassName = `text-primary-500 hover:text-primary-500 bg-primary-100`
 
   return (
     <div className=' flex-1 overflow-y-auto' >
@@ -63,6 +62,8 @@ const SidebarNavLink = ({ item }) => {
 
 
 const SidebarNav = () => {
+  const location = useLocation()
+  console.log(location)
   return (
     <div id="AppSidebarNav" className="w-[250px] px-4 py-4">
       {/* Sidebar Nav Section */}
@@ -71,7 +72,9 @@ const SidebarNav = () => {
           Core Modules
         </div> */}
         {itemsCore.map((item,index) => (
-          <SidebarNavLink key={index} item={item} />
+          <div className={`${item.link===location.pathname? "bg-primary-100":"" } hover:bg-primary-100 rounded-xl`} >
+            <SidebarNavLink key={index} item={item} />
+          </div>
         ))}
       </div>
       {/* <div className="mb-10">

@@ -79,7 +79,7 @@ export default function Login() {
     <figure className="h-screen flex bg-gray-100">
       <div className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-1">
         <blockquote className="text-2xl font-medium text-center">
-          <p className="text-lg font-semibold">Welcome to My-App</p>
+          <p className="text-lg font-semibold">Welcome to Our Hotel</p>
         </blockquote>
 
         <div className="text-primary m-6">

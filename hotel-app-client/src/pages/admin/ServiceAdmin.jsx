@@ -46,7 +46,7 @@ const AddService = ({ triggers }) => {
       <div
         className="flex flex-row justify-center p-6 border-b border-gray-200 rounded-tl-lg rounded-tr-lg"
       >
-        <p className="font-semibold text-2xl text-gray-800">Edit Service</p>
+        <p className="font-semibold text-2xl text-gray-800">Add Service</p>
       </div>
       <div className="flex flex-col px-6 py-5">
         <div className="flex flex-col sm:flex-row items-center mb-5 sm:space-x-5">

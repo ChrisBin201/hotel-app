@@ -1,6 +1,7 @@
 package hotels.controller;
 
 import hotels.dto.requestDto.ServiceRequestDto;
+import hotels.dto.requestDto.UserRequestDto;
 import hotels.dto.responseDto.ServiceResponseDto;
 import hotels.dto.responseDto.UserResponseDto;
 import hotels.security.jwt.JwtUtils;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -42,6 +44,11 @@ public class UserController {
     @DeleteMapping("/deleteUser/{id}")
     public ResponseEntity<UserResponseDto> deleteUser(@PathVariable final Long id){
         UserResponseDto userResponseDto = userService.deleteUser(id);
+        return new ResponseEntity<>(userResponseDto,HttpStatus.OK);
+    }
+    @PutMapping("editUser/{id}")
+    public ResponseEntity<UserResponseDto> edtService(@PathVariable final Long id ,@Valid @RequestBody final UserRequestDto userRequestDto){
+        UserResponseDto userResponseDto = userService.editUser(id,userRequestDto);
         return new ResponseEntity<>(userResponseDto,HttpStatus.OK);
     }
 }

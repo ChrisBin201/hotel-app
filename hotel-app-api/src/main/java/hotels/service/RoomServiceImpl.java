@@ -48,7 +48,7 @@ public class RoomServiceImpl implements RoomService{
         room.setDescription(roomRequestDto.getDescription());
         room.setListBookedRoom(new ArrayList<>());
         Room room1 = roomRepository.save(room);
-        if(img!=null)
+        if(img!=null || img.isEmpty())
         {
             String pathDir = new ClassPathResource("static/images/").getFile().getAbsolutePath();
 //        String imgName = "room"+room1.getId()+".png";
@@ -89,7 +89,7 @@ public class RoomServiceImpl implements RoomService{
             }
         });
         for(RoomResponseDto r:list){
-            if(r.getImage()==null)
+            if(r.getImage()==null || r.getImage().isEmpty() || r.getImage().isBlank())
                 r.setImage("http://localhost:8080"+context.getContextPath()+"/images/"+"defaultRoom.jpg");
         }
         return list;
@@ -104,7 +104,7 @@ public class RoomServiceImpl implements RoomService{
                 .map(r -> mapper.roomToRoomResponseDto(r))
                 .collect(Collectors.toCollection(ArrayList::new));
         for(RoomResponseDto r:list){
-            if(r.getImage()==null)
+            if(r.getImage()==null || r.getImage().isEmpty() || r.getImage().isBlank())
                 r.setImage("http://localhost:8080"+context.getContextPath()+"/images/"+"defaultRoom.jpg");
             int random = LocalTime.now().getSecond();
             r.setImage(r.getImage()+"?"+random);

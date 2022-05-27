@@ -102,11 +102,11 @@ export default function Dashboard() {
   }, [customers])
 
   return (
-    <div className="flex" >
+    <div className="flex bg-gray-50" >
       <SideBar />
       <div className="pt-6 px-4 w-full">
 
-        <div className="mt-4 w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
+        <div className="mt-4 w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-10">
           {stat.map((item, index) => {
             const { icon: Icon } = item
             return (
@@ -114,7 +114,7 @@ export default function Dashboard() {
                 <div className="flex items-center">
                   <div className="flex-shrink-0">
                     <span className="text-2xl sm:text-2xl leading-none font-bold text-gray-900">{item.total}</span>
-                    <h3 className="text-base font-normal text-gray-500">{item.name}</h3>
+                    <h3 className="text-lg font-normal text-gray-600">{item.name}</h3>
                   </div>
                   <div className="ml-5 w-0 flex items-center justify-end flex-1 text-green-500 text-base font-bold">
                     <Icon />
@@ -208,7 +208,7 @@ export default function Dashboard() {
                         {c.customer.tel}
                       </td>
                       <td className="whitespace-nowrap p-4  text-base font-semibold text-gray-900">
-                        {c.total}
+                        {c.total}$
                       </td>
                     </tr>
                   )}

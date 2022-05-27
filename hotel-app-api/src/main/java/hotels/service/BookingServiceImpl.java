@@ -9,6 +9,7 @@ import hotels.repository.*;
 import org.springframework.stereotype.Service;
 
 
+import javax.servlet.ServletContext;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -25,14 +26,16 @@ public class BookingServiceImpl implements BookingService{
     private final UserRepository userRepository;
     private final RoomRepository roomRepository;
     private final ServiceRepository serviceRepository;
+    private ServletContext context;
 
 
-    public BookingServiceImpl(BookingRepository bookingRepository, BookedRoomRepository bookedRoomRepository, UserRepository userRepository, RoomRepository roomRepository, ServiceRepository serviceRepository) {
+    public BookingServiceImpl(BookingRepository bookingRepository, BookedRoomRepository bookedRoomRepository, UserRepository userRepository, RoomRepository roomRepository, ServiceRepository serviceRepository, ServletContext context) {
         this.bookingRepository = bookingRepository;
         this.bookedRoomRepository = bookedRoomRepository;
         this.userRepository = userRepository;
         this.roomRepository = roomRepository;
         this.serviceRepository = serviceRepository;
+        this.context = context;
     }
 
     @Override
@@ -145,6 +148,12 @@ public class BookingServiceImpl implements BookingService{
         List<BookingResponseDto> list = listBooking.stream()
                 .map(bk -> mapper.BookingToBookingResponseDto(bk))
                 .collect(Collectors.toCollection(ArrayList::new));
+        for(BookingResponseDto bk:list){
+            for(BookedRoomResponseDto br:bk.getListBookedRoom()){
+                if(br.getRoom().getImage()==null)
+                    br.getRoom().setImage("http://localhost:8080"+context.getContextPath()+"/images/"+"defaultRoom.jpg");
+            }
+        }
         return list;
     }
 

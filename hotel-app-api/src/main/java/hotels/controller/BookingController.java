@@ -34,7 +34,7 @@ public class BookingController {
         return new ResponseEntity<>(listBooking,HttpStatus.OK);
     }
     @GetMapping("/room/{id}")
-    public ResponseEntity<List<BookedRoomResponseDto>> getAllBookings(@PathVariable final  Long id){
+    public ResponseEntity<List<BookedRoomResponseDto>> getBookingsByRoom(@PathVariable final  Long id){
         List<BookedRoomResponseDto> listBooking = bookingService.getBookingByRoom(id);
         return new ResponseEntity<>(listBooking,HttpStatus.OK);
     }

@@ -375,7 +375,7 @@ export default function RoomAdmin() {
     }
   }, [changedData])
   return (
-    <div className="flex gap-10" >
+    <div className="flex gap-10 " >
       <Sidebar />
       <div className="w-full p-6" >
         <div className="sm:flex justify-between px-4 pb-8">

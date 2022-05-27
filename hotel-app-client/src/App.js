@@ -12,8 +12,8 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Rooms from "./pages/Rooms";
 import { PrivateRoute } from "./components/PrivateRoute";
-import Dashboard from"./pages/admin/Dashboard"
-import Booking from "./pages/Booking";
+import Dashboard from "./pages/admin/Dashboard";
+import Booking from "./components/Booking";
 import History from "./pages/History";
 import Profile from "./pages/Profile";
 import RoomAdmin from "./pages/admin/RoomAdmin";
@@ -22,20 +22,62 @@ import ServiceAdmin from "./pages/admin/ServiceAdmin";
 import StatClient from "./pages/admin/StatClient";
 import StatRoom from "./pages/admin/StatRoom";
 function App() {
-
   return (
     <div className="App">
       <BrowserRouter>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route  path="/admin/dashboard" element={<Dashboard/>} />
-          <Route  path="/admin/customer" element={<CustomerAdmin/>} />
-          <Route  path="/admin/room" element={<RoomAdmin/>} />
-          <Route  path="/admin/service" element={<ServiceAdmin/>} />
-          <Route  path="/admin/statClient" element={<StatClient/>} />
-          <Route  path="/admin/statRoom" element={<StatRoom/>} />
-          <Route  path="/booking" element={<Booking/>} />
+          <Route path="/signin" element={<Login />} />
+          <Route path="/signup" element={<Register />} />
+          <Route
+            path="/admin/dashboard"
+            element={
+              <PrivateRoute>
+                <Dashboard />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/admin/customer"
+            element={
+              <PrivateRoute>
+                <CustomerAdmin />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/admin/room"
+            element={
+              <PrivateRoute>
+                <RoomAdmin />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/admin/service"
+            element={
+              <PrivateRoute>
+                <ServiceAdmin />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/admin/statClient"
+            element={
+              <PrivateRoute>
+                <StatClient />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/admin/statRoom"
+            element={
+              <PrivateRoute>
+                <StatRoom />
+              </PrivateRoute>
+            }
+          />
           <Route
             path="/rooms"
             element={
@@ -54,9 +96,7 @@ function App() {
           />
           {/* <Route exact path="/rooms/:slug" component={SingleRoom} />
           <Route exact path="/booknow/:slug" component={Booknow} /> */}
-          <Route path="/history" element={<History/>}/>
-          <Route path="/signin" element={<Login />} />
-          <Route path="/signup" element={<Register />} />
+          <Route path="/history" element={<History />} />
         </Routes>
         {/* <Footer/> */}
       </BrowserRouter>

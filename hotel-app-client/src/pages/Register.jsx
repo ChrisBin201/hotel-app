@@ -4,8 +4,10 @@ import jsCookie from "js-cookie";
 import { useRecoilState, useResetRecoilState } from "recoil";
 import { TOKEN_STATE } from "../state/token-state";
 import { Link, useNavigate } from "react-router-dom";
+import { Alert, Snackbar } from "@mui/material";
 export default function Register() {
   const navigate = useNavigate()
+  const [warning,setWarning] = useState({open:false, text:""})
   const [formData, setFormData] = useState({
     user: {
       fullname:"",
@@ -44,6 +46,8 @@ export default function Register() {
     else {
       console.log("sign in that bai")
       console.log(formData.user)
+      console.log(response.status)
+      setWarning({open:true, text:"Incomplete information or username already used"})
     }
   };
 
@@ -61,7 +65,7 @@ export default function Register() {
     <figure className="h-screen flex bg-gray-100">
       <div className="w-full max-w-md m-auto bg-white rounded-lg border border-primaryBorder shadow-default py-10 px-1">
         <blockquote className="text-2xl font-medium text-center">
-          <p className="text-lg font-semibold">Welcome to My-App</p>
+          <p className="text-lg font-semibold">Welcome to Our Hotel</p>
         </blockquote>
 
         <div className="text-primary m-6">
@@ -142,6 +146,11 @@ export default function Register() {
         </div>
 
       </div>
+      <Snackbar className="" open={warning.open} autoHideDuration={4000}  onClose={()=> setWarning({open:false, text:""})} >
+        <Alert  severity="warning" className="flex items-center " sx={{ width: "100%" }}>
+          {warning.text}
+        </Alert>
+      </Snackbar>
     </figure>
   );
 }

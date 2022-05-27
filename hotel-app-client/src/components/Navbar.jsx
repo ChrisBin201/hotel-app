@@ -57,6 +57,9 @@ const Navbar = () => {
                                                     <NavLink className="" activeclassname="active_class" to="/rooms">Rooms</NavLink>
                                                 </li>
                                                 <li className="nav-item">
+                                                    <NavLink className="" activeclassname="active_class" to="/history">History</NavLink>
+                                                </li>
+                                                <li className="nav-item">
                                                     <NavLink className="" activeclassname="active_class" to="/profile">Profile</NavLink>
                                                 </li>
                                                 <li className='' onClick={handleSignOut} >

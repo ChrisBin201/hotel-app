@@ -2,7 +2,7 @@ import { useRecoilState } from "recoil"
 import { LIST_ROOM } from "../state/room-state"
 import fetcher, { typeData } from "../util/fetcher";
 import { API_URL } from "../util/url";
-
+import moment from "moment"
 export const fetchAllRooms = async () => {
 
   const data = await fetcher(`${API_URL}/rooms`)
@@ -27,7 +27,11 @@ export const fetchRoomStat = async (listRoom) =>{
         // total += br.price
         //total service in a booked room
         // total += br.listUsedService.reduce((sum, us) => sum + us.price * us.quantity, 0)
-        let totalBr =br.price
+        let ci = moment(br.checkin,"DD/MM/YYYY").toDate()
+        let co = moment(br.checkout,"DD/MM/YYYY").toDate()
+        const diffTime = Math.abs(co - ci);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)) +1; 
+        let totalBr =br.price * diffDays
         totalBr += br.listUsedService.reduce((sum, us) => sum + us.price * us.quantity, 0)
         total+=totalBr
         bookedRoomStat.push({bookedRoom: br,total: totalBr})

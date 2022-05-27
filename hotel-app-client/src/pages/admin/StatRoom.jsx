@@ -88,6 +88,7 @@ export default function StatRoom() {
             <thead>
               <tr>
                 <th scope="col" className="p-4 w-80 bg-gray-50 text-gray-700 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 ">Customer</th>
+                <th scope="col" className="p-4 w-80 bg-gray-50 text-gray-700 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 ">Booking Date</th>
                 <th scope="col" className="p-4  bg-gray-50 text-gray-700 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 ">Check-in</th>
                 <th scope="col" className="p-4 bg-gray-50 text-gray-700 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 ">Check-out</th>
                 <th scope="col" className="p-4 bg-gray-50 text-gray-700 align-middle py-3 text-xs font-semibold text-left uppercase border-l-0 border-r-0 ">Total</th>
@@ -105,6 +106,9 @@ export default function StatRoom() {
                         </p>
                       </div>
                     </div>
+                  </td>
+                  <td className="whitespace-nowrap p-4   text-base font-semibold text-gray-900">
+                    {br.bookedRoom.bookingDate}
                   </td>
                   <td className="whitespace-nowrap p-4   text-base font-semibold text-gray-900">
                     {br.bookedRoom.checkin}
