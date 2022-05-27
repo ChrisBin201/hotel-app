@@ -1,3 +1,4 @@
+Project Web Programming Group 14
 1.	Mô tả dự án
 + Tạo ra 1 trang web đặt phòng khách sạn có giao diện đơn giản, nhanh gọn, dễ tiếp cận với người dùng
 2.	Đóng góp của các thành viên trong nhóm
