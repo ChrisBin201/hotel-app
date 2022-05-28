@@ -126,7 +126,7 @@ export default function History() {
                 <div className="w-full  p-3">
             <div className="flex flex-row h-[222px] rounded-lg overflow-y-auto   border shadow ">
               <img className="block  w-52  flex-none bg-cover " src={br.room.image} />
-              <div className="flex justify-between w-full gap-16" >
+              <div className="flex justify-between w-full gap-8" >
                 <div className="bg-white w-[450px] rounded-b lg:rounded-b-none lg:rounded-r px-4 flex flex-col gap-2 justify-center ">
                   <div className="flex gap-4 items-center" >
                     <div className="font-bold text-xl mb-2">{br.room.name}</div>
@@ -144,7 +144,7 @@ export default function History() {
                   </div>
                 </div>
                 {!br.listUsedService.every(us => us.quantity === 0) &&
-                  <div className="p-4 my-4 max-w-sm bg-white rounded-lg border shadow-md flex flex-col items-center ">
+                  <div className="p-4 my-4 w-[280px] bg-white rounded-lg border shadow-md flex flex-col items-center ">
                     <h5 className=" text-xl text-center font-medium text-gray-500 dark:text-gray-400">Services</h5>
                     <div className="flex text-gray-900">
                       <span className="text-2xl font-semibold">$</span>

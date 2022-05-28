@@ -46,8 +46,8 @@ public class UserController {
         UserResponseDto userResponseDto = userService.deleteUser(id);
         return new ResponseEntity<>(userResponseDto,HttpStatus.OK);
     }
-    @PutMapping("editUser/{id}")
-    public ResponseEntity<UserResponseDto> edtService(@PathVariable final Long id ,@Valid @RequestBody final UserRequestDto userRequestDto){
+    @PutMapping("/editUser/{id}")
+    public ResponseEntity<UserResponseDto> editUser(@PathVariable final Long id ,@Valid @RequestBody final UserRequestDto userRequestDto){
         UserResponseDto userResponseDto = userService.editUser(id,userRequestDto);
         return new ResponseEntity<>(userResponseDto,HttpStatus.OK);
     }

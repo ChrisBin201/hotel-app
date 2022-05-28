@@ -34,7 +34,8 @@ export default function Profile() {
         [e.target.name]: e.target.value,
       },
     });
-    console.log(formData)
+    console.log({...formData.user,
+      [e.target.name]: e.target.value})
   };
 
   const handleFormSubmit = async (e) =>{
@@ -83,7 +84,7 @@ export default function Profile() {
             </div>
 
             <div className="flex justify-center" >
-              <button onClick={() => setOpenDialog(true)} className="rounded-full py-2 px-4 mt-3 text-md border-2 hover:bg-blue-500 hover:border-blue-500 hover:text-white">Update Profile</button>
+              <button onClick={() => {setFormData({user: userInfo}) ;setOpenDialog(true)}} className="rounded-full py-2 px-4 mt-3 text-md border-2 hover:bg-blue-500 hover:border-blue-500 hover:text-white">Update Profile</button>
               </div>
             </div>
           }

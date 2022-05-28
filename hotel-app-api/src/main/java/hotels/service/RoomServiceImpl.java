@@ -48,7 +48,7 @@ public class RoomServiceImpl implements RoomService{
         room.setDescription(roomRequestDto.getDescription());
         room.setListBookedRoom(new ArrayList<>());
         Room room1 = roomRepository.save(room);
-        if(img!=null || img.isEmpty())
+        if(img!=null)
         {
             String pathDir = new ClassPathResource("static/images/").getFile().getAbsolutePath();
 //        String imgName = "room"+room1.getId()+".png";

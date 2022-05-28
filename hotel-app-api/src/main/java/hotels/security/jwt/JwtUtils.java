@@ -26,7 +26,9 @@ public class JwtUtils {
     @Value("adminToken")
     private String jwtCookieAdmin;
     public String getJwtFromCookies(HttpServletRequest request) {
-        Cookie cookie = WebUtils.getCookie(request, jwtCookieUser);
+        Cookie cookie = WebUtils.getCookie(request, jwtCookie);
+        if(cookie==null)
+            cookie = WebUtils.getCookie(request, jwtCookieUser);
         if(cookie==null)
             cookie = WebUtils.getCookie(request, jwtCookieAdmin);
 //        System.out.println(cookie);
@@ -36,10 +38,10 @@ public class JwtUtils {
         } else {
             if(request.getHeader(jwtCookie) != null)
                 return request.getHeader(jwtCookie);
-//            if(request.getHeader(jwtCookieUser) != null)
-//                return request.getHeader(jwtCookieUser);
-//            if(request.getHeader(jwtCookieAdmin) != null)
-//                return request.getHeader(jwtCookieAdmin);
+            if(request.getHeader(jwtCookieUser) != null)
+                return request.getHeader(jwtCookieUser);
+            if(request.getHeader(jwtCookieAdmin) != null)
+                return request.getHeader(jwtCookieAdmin);
             return null;
         }
     }

@@ -98,7 +98,8 @@ export default function Rooms() {
       <div className="flex gap-7 items-center my-10" >
         <LocalizationProvider dateAdapter={AdapterDateFns} >
           <DatePicker
-            label="Start date"
+            inputFormat="dd/MM/yyyy"
+            label="Check in"
             value={startDate}
             onChange={(newStartDate) => {
               setStartDate(newStartDate);
@@ -107,7 +108,8 @@ export default function Rooms() {
             renderInput={(params) => <TextField {...params} />}
           />
           <DatePicker
-            label="End date"
+            inputFormat="dd/MM/yyyy"
+            label="Check out"
             value={endDate}
             onChange={(newEndDate) => {
               setEndDate(newEndDate);

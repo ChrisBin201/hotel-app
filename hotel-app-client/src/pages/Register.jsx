@@ -41,7 +41,7 @@ export default function Register() {
       setToken(data.token)
       setTimeout(() => {
         navigate(`/signin`);
-      }, 2000);
+      }, 1000);
     }
     else {
       console.log("sign in that bai")

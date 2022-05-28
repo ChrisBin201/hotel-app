@@ -19,7 +19,7 @@ public class SignupRequest {
     private String address;
 
     @NotBlank
-    @Pattern(regexp="(^$|[0-9]{10})")
+    @Pattern(regexp="^$|[0-9]{10}")
     private String tel;
 
     @NotBlank

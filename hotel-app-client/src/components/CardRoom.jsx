@@ -62,7 +62,12 @@ export default function CardRoom({ room, handleSelectRoom }) {
         <p class="text-gray-700 text-base text-ellipsis overflow-hidden h-[72px]">{room.description}</p>
       </div>
       <div class=" px-3 py-3 flex items-center justify-between">
-        <div className="flex items-center" ><span class="font-semibold mr-2">Price</span>&nbsp;<span class="font-bold text-xl">{room.price}</span>&nbsp;<span class="text-sm font-semibold">$</span></div>
+        <div className="flex items-center" >
+          <span class="font-semibold mr-2">Price</span>&nbsp;
+          <span class="font-bold text-xl">{room.price}</span>&nbsp;
+          <span class="text-sm font-semibold">$</span>
+          <span class="text-sm font-semibold">/day</span>
+          </div>
         <FormControlLabel
           control={
             <Checkbox

@@ -83,7 +83,7 @@ export default function Booking({ trigger, checkIn, checkOut }) {
                   </div>
                 </div>
                 {!room.listUsedService.every(us => us.quantity === 0) &&
-                  <div class="p-4 my-4 bg-white rounded-lg border shadow-md flex flex-col items-center ">
+                  <div class="p-4 my-4 w-[280px] bg-white rounded-lg border shadow-md flex flex-col items-center ">
                     <h5 class=" text-xl text-center font-medium text-gray-500 dark:text-gray-400">Services</h5>
                     <div class="flex text-gray-900">
                       <span class="text-2xl font-semibold">$</span>
