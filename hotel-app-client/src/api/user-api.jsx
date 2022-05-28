@@ -47,6 +47,6 @@ export const fetchUserInfo = async () => {
 }
 
 export const editUser = async (user) => {
-  const data = await fetcher(`${API_URL}/users/editUser/{${user.id}}`,'PUT',user)
+  const data = await fetcher(`${API_URL}/users/editUser/${user.id}`,'PUT',user)
   return data
 }

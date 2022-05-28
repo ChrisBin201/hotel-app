@@ -31,6 +31,8 @@ const Navbar = () => {
     }, [token])
     const handleSignOut = () => {
         jsCookie.remove("token")
+        jsCookie.remove("userToken")
+        jsCookie.remove("adminToken")
         setToken("")
         resetBookedRooms()
     }

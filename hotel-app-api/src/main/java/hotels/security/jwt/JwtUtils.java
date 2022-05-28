@@ -21,8 +21,14 @@ public class JwtUtils {
     private int jwtExpirationMs;
     @Value("${btl.jwtCookieName}")
     private String jwtCookie;
+    @Value("userToken")
+    private String jwtCookieUser;
+    @Value("adminToken")
+    private String jwtCookieAdmin;
     public String getJwtFromCookies(HttpServletRequest request) {
-        Cookie cookie = WebUtils.getCookie(request, jwtCookie);
+        Cookie cookie = WebUtils.getCookie(request, jwtCookieUser);
+        if(cookie==null)
+            cookie = WebUtils.getCookie(request, jwtCookieAdmin);
 //        System.out.println(cookie);
         if (cookie != null) {
 //            System.out.println(cookie.getValue());
@@ -30,6 +36,10 @@ public class JwtUtils {
         } else {
             if(request.getHeader(jwtCookie) != null)
                 return request.getHeader(jwtCookie);
+//            if(request.getHeader(jwtCookieUser) != null)
+//                return request.getHeader(jwtCookieUser);
+//            if(request.getHeader(jwtCookieAdmin) != null)
+//                return request.getHeader(jwtCookieAdmin);
             return null;
         }
     }

@@ -6,8 +6,10 @@ export const typeData ={
 }
 export default async function fetcher(url, method = 'GET', params = {}, bodyType = typeData.json) {
     // try {
-        const token = jsCookie.get('token');
-        
+        let token = jsCookie.get('adminToken');
+        if(!token) 
+            token = jsCookie.get('userToken')
+        // let token = jsCookie.get('token')
         var _header = new Headers({
             'Accept': 'application/json',
             'Content-Type': 'application/json'

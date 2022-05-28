@@ -7,6 +7,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { AUTH_STATE } from "../state/auth-state";
 import { USER_STATE } from "../state/user-state"
 import { Alert, CircularProgress, Snackbar } from "@mui/material";
+
+const role = {
+  ADMIN: 'ADMIN',
+  CUSTOMER: 'CUSTOMER'
+}
+
 export default function Login() {
   const navigate = useNavigate()
   const [formData, setFormData] = useState({
@@ -36,9 +42,14 @@ export default function Login() {
       console.log(response.headers.get("set-cookie"))
       // console.log(document.cookie)
       let data = await response.json()
-      jsCookie.set("token", data.token, { expires: 0.5 })
+      
       // console.log()
       let  {token,...newUser} = data
+      // jsCookie.set("token", token, { expires: 0.5 })
+      if(newUser.role===role.ADMIN)
+        jsCookie.set("adminToken", token, { expires: 0.5 })
+      else
+        jsCookie.set("userToken", token, { expires: 0.5 })  
       setToken(data.token)
       // setUser(newUser)
       console.log(newUser)
