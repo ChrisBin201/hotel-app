@@ -1,27 +1,10 @@
 Project Web Programming Group 14
 1.	Mô tả dự án
 + Tạo ra 1 trang web đặt phòng khách sạn có giao diện đơn giản, nhanh gọn, dễ tiếp cận với người dùng
-2.	Đóng góp của các thành viên trong nhóm
--	Trần Bình Minh – B19DCCN442 (nhóm trưởng)
-  + Thiết kế CSDL
-  + Khởi tạo project
-  + Code frontend
-  + Phân quyền admin và customer 
-  + Code các API của Backend
-  + Code các Business lớn
--	Nguyễn Đình Mạnh – B19DCCN418
-  + Thiết kế CSDL
-  + Code package model
-  + Code repository
-  + Làm phần kết nối giữa backend với database
--	Nguyễn Văn Minh – B19DCCN438
-  + Thiết kế CSDL
-  + Code controller và service phần service và user
-  + Code dto phần user và service
-3.  Mô tả cơ bản về chức năng
+2.  Mô tả cơ bản về chức năng
 -	Admin: Đăng xuất, đăng nhập, thêm, sửa, xóa các phòng, dịch vụ, xóa các account khách hàng, thống kê doanh thu theo phòng và theo khách hàng
 -	Khách hàng: Có thể đăng ký tài khoản, đăng nhập, xem và sửa thông tin cá nhân, xem lịch sử đặt phòng, xem danh sách các phòng còn trống trong khoảng thời gian mong muốn, tìm kiếm phòng theo ngày tháng, thêm phòng vào đơn muốn thuê, xem thông tin phòng, đặt phòng
-4.	Thiết kế của hệ thống
+3.	Thiết kế của hệ thống
 -	Cơ sở dữ liệu
  ![image](https://user-images.githubusercontent.com/84676857/170743945-ce96821d-d4fe-4a4d-8b6d-312d2cd117ab.png)
 
@@ -30,7 +13,7 @@ Project Web Programming Group 14
     + Sử dụng thư viện Reactjs ở bên Frontend giao tiếp với bên Backend dùng Java Spring framework qua REST API
     + JPA làm nhiệm vụ lấy data hoặc update data vào database
     + Liên kết với database là MySQL
-5.	Màn hình demo
+4.	Màn hình demo
 * GIAO DIỆN CHUNG
   + Trang chủ
    ![image](https://user-images.githubusercontent.com/84676857/170743967-debc0186-39f4-4829-945d-2817ec748962.png)
